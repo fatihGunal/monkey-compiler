@@ -16,6 +16,7 @@ type Lexer struct {
 	ch           byte
 }
 
+// input is a string that represent code/command (via cli)
 func New(input string) *Lexer {
 	l := &Lexer{input: input}
 	l.readChar()

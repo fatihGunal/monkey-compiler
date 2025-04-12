@@ -16,7 +16,7 @@ type Lexer struct {
 	ch           byte
 }
 
-// input is a string that represent code/command (via cli)
+// input is a string that represent code/command (via cli/repl)
 func New(input string) *Lexer {
 	l := &Lexer{input: input}
 	l.readChar()
@@ -122,6 +122,7 @@ func (l *Lexer) readNumber() string {
 	return l.input[position:l.position]
 }
 
+// to deal with '==' or '!='
 func (l *Lexer) peekChar() byte {
 	if l.readPosition >= len(l.input) {
 		return 0
